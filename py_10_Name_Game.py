@@ -17,7 +17,6 @@ while True:
     else:
         break
 
-print()
 
 secondname = input('Second Name: ')
 secondname = secondname.lower()
@@ -31,3 +30,21 @@ while True:
     else:
         break
 
+fn_value = 0
+for i in firstname:
+    n = alphabet.index(i) + 1
+    fn_value = fn_value + n
+
+
+sn_value = 0
+for i in firstname:
+    n = alphabet.index(i) + 1
+    sn_value = sn_value + n
+
+
+first_letter_number = fn_value*sn_value
+first_letter_number = fn_value*sn_value%26
+
+
+first_letter = alphabet[first_letter_number-1]
+print(first_letter)
