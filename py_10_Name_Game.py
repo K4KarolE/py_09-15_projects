@@ -1,46 +1,33 @@
 
-
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 print('')
 print('Give me two english names and I will tranform them into one for you.')
+
+
 firstname = input('First Name: ')
 firstname = firstname.lower()
-namelenght = len(firstname) - 1
-
-
-n = 0
-while n <= namelenght:
-        while firstname[n] not in alphabet:
-            firstname = input('Please add a proper english First Name: ')
-            n = 0
-        while firstname[n] in alphabet:    
-            testN = firstname[n]
-            n += 1
-            print(testN)
-        if n > namelenght:
+while True:
+    for i in firstname:
+        if i not in alphabet:
+            print()
+            print('Please add a proper english first name, no special characters, no numbers.')
+            firstname = input('First Name: ')
             break
+    else:
+        break
 
+print()
 
-    
+secondname = input('Second Name: ')
+secondname = secondname.lower()
+while True:
+    for i in secondname:
+        if i not in alphabet:
+            print()
+            print('Please add a proper english second name, no special characters, no numbers.')
+            secondname = input('Second Name: ')
+            break
+    else:
+        break
 
-    
-
-    
-
-# print(n)
-# print(firstname[n])
-# print(namelenght)
-
-
-
-# letter = firstname[:1]
-
-
-
-
-
-# print(letter)
-# print(len(firstname))
-# print(alphabet[25])
-# secondname = input('Second Name: ')
