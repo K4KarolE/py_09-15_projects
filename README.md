@@ -3,7 +3,7 @@ Name Game
 - Python not able to handle: 'name(string)' * 'name(string)' so what if..
 - asking to input 2 english names
 - validating them, no numbers, no special characters
-- turn the names into numbers by allocating the letters from the name to it`s position in alphabet: a=1, b=2 // Peter = 16 5 20 5 18 = 16520518 
+- turn the names into numbers by allocating the letters from the name to it`s position in alphabet: a=1, b=2 // Peter = 16+5+20+5+18 
 - multiply the 2 numbers (from the names) with eachother
 - modulo 26 (as many the letters in the US aphabet)
 - turn back that number into letter, that will be the first letter of the result/new name
