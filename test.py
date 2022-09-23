@@ -1,18 +1,27 @@
-pu = str(123456)
-test = pu[0]
+# pu = str(123456)
+# test = pu[0]
 
-print(test)
+# print(test)
 
-name = len('szoda')
-for n in range(name):
+# name = len('szoda')
+# for n in range(name):
+#     print(n)
+
+
+# len('wesfwfe')
+# int('4')
+
+# float(4)
+
+# type(-7.0)
+
+# print('ewww')
+
+def test():
+    n = input('What should I write out? ')
     print(n)
 
 
-len('wesfwfe')
-int('4')
+test()
 
-float(4)
 
-type(-7.0)
-
-print('ewww')
