@@ -122,7 +122,7 @@ while True:
         loss += 1
         loss_print()
 
-#USER`S ANSWER NOT PART OF R/P/S/Q
+#USER`S ANSWER IS NOT PART OF R/P/S/Q
     elif users_pick not in list_of_answers:
         print()
         time.sleep(0.3)

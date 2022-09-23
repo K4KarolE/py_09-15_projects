@@ -141,6 +141,8 @@ while True:
         print('Win(' + str(win) + ') Loss(' + str(loss) + ') Draw(' + str(draw) + ')')
         print()
 
+
+#USER`S ANSWER IS NOT PART OF R/P/S/Q
     elif users_pick not in list_of_answers:
         print()
         time.sleep(0.3)
@@ -149,10 +151,7 @@ while True:
         # time.sleep(0.2)
         # print('Win(' + str(win) + ') Loss(' + str(loss) + ') Draw(' + str(draw) + ')')
         print()
-
-# time.sleep(0.5)
-# print('Thx for playing see you next time!')
-# print()      
+     
 
 
 
