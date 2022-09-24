@@ -5,7 +5,7 @@
 import time
 
 print()
-print('ZIGZAG - Started as a normal zigzag. Now it looks like an acid trip labirynth. It`s alive. It`s beautiful.')
+print('ZIGZAG - Started as a normal zigzag. Now, if you wait enough it looks like an acid trip labirynth. It`s alive. It`s beautiful.')
 paint =input('I will draw you a zigzag. Which characters should I use it for? ')
 wide = input('How many characters wide should it be? ')
 

@@ -15,6 +15,6 @@
 - V3: using/learning def() - declaration
 
 
-11 - Zigzag
+11 - ZigZag
 - V1: Used to be a normal zigzag, now it is sth heaven
 - V2: Adding exit opportunity
