@@ -15,13 +15,17 @@
 
 # type(-7.0)
 
-# print('ewww')
+# # print('ewww')
 
-def test():
-    n = input('What should I write out? ')
-    print(n)
-
-
-test()
+# def test():
+#     n = input('What should I write out? ')
+#     print(n)
 
 
+# test()
+
+
+
+
+reprrr = input('afwef ' )
+print(type(reprrr))

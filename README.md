@@ -18,3 +18,8 @@
 11 - ZigZag
 - V1: Used to be a normal zigzag, now it is sth heaven
 - V2: Adding exit opportunity
+
+12 - Collatz sequence
+- every given number can/will be reduced to 1 if we repaet continously:
+    - if the number even: number//2,   and return value
+    - if the number is odd: number*3 + 1 and return value 
