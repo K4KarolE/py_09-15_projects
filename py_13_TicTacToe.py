@@ -1,5 +1,14 @@
 
 
+valid_list = ['A', 'B', 'C', 1, 2, 3]
+# colomn = ['A', 'B', 'C']
+# row = [1, 2, 3]
+
+first_row = ['[ ]', '[ ]', '[ ]']
+second_row = ['[ ]', '[ ]', '[ ]']
+third_row = ['[ ]', '[ ]', '[ ]']
+
+
 def help():
     print('   A ', '  B ', '  C')
     print('1: A1 | B1 | C1')
@@ -7,22 +16,81 @@ def help():
     print('3: A3 | B3 | C3')
 
 
-validation = ['A', 'B', 'C', 1, 2, 3]
+def current_table():
+    print('  ', ' A ', ' B ', ' C')
+    print('1: ' + first_row[0] + ' ' + first_row[1] + ' ' + first_row[2])
+    print('2: ' + second_row[0] + ' ' + second_row[1] + ' ' + second_row[2])
+    print('3: ' + third_row[0] + ' ' + third_row[1] + ' ' + third_row[2])
 
-first_row = ['_', '_', '_']
-second_row = ['_', '_', '_']
-third_row = ['_', '_', '_']
+
+
+print('\n')
+print('TIC TAC TOE')
+
+
+playcharORI = input('Which symbol do you want to choose?(X or 0) ').upper()
+while playcharORI not in ['X', '0']:
+    playcharORI = input('Come on buddy, you can make it. X or 0? ').upper()
+
+playchar = ' ' + playcharORI + ' '
 
 print()
-print('TIC TAC TOE\n')
-print('   A ', ' B ', ' C')
-print('1: _ | _ | _')
-print('2: _ | _ | _')
-print('3: _ | _ | _')
-
-print()
-print('Type "help" for guidence.')
+current_table()
+print('Type "help" for guidance.')
 move = input('Make your move: ').upper()
+user_move_list = [] + [move]   #for validation, make sure the user not moving to an already allocated position
 
 
-# validation with 2 ranges from the list
+def validation():
+    if move not in user_move_list:
+        validation = True
+    if move[0] in valid_list[0:2]:
+        validation = True
+    if move[1] in valid_list[3:5]:
+        validation = True
+    else:
+        validation = False
+
+
+def user_moves():
+    if move[1] == '1':
+        if move[0] == 'A':
+            first_row[0] = playchar
+        elif move[0] == 'B':
+            first_row[1] = playchar
+        elif move[0] == 'C':
+            first_row[2] = playchar
+           
+    if move[1] == '2':
+        if move[0] == 'A':
+            second_row[0] = playchar
+        elif move[0] == 'B':
+            second_row[1] = playchar
+        elif move[0] == 'C':
+            second_row[2] = playchar
+  
+    if move[1] == '3':
+        if move[0] == 'A':
+            third_row[0] = playchar
+        elif move[0] == 'B':
+            third_row[1] = playchar
+        elif move[0] == 'C':
+            third_row[2] = playchar
+
+user_moves()
+
+print()   
+current_table()
+print()
+help()
+# print(user_move_list)
+
+
+
+    
+
+
+
+        
+
+
