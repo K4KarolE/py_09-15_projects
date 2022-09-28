@@ -1,4 +1,4 @@
-
+import time
 
 valid_list = ['A', 'B', 'C', 1, 2, 3]
 # colomn = ['A', 'B', 'C']
@@ -8,6 +8,8 @@ first_row = ['[ ]', '[ ]', '[ ]']
 second_row = ['[ ]', '[ ]', '[ ]']
 third_row = ['[ ]', '[ ]', '[ ]']
 
+symbol_list = ['X', '0']
+symbol_list_PC = ['X', '0']
 
 def help():
     print('   A ', '  B ', '  C')
@@ -28,11 +30,14 @@ print('\n')
 print('TIC TAC TOE')
 
 
-playcharORI = input('Which symbol do you want to choose?(X or 0) ').upper()
-while playcharORI not in ['X', '0']:
+playcharORI = input('Which symbol do you want to play with?(X or 0) ').upper()
+while playcharORI not in symbol_list:
     playcharORI = input('Come on buddy, you can make it. X or 0? ').upper()
 
-playchar = ' ' + playcharORI + ' '
+playchar = ' ' + playcharORI + ' ' #make sure the step graphicly align in the 3x3 matrix
+
+symbol_list_PC.remove(playcharORI)    
+PC_char = symbol_list_PC[0]   #the symbol the PC will use
 
 print()
 current_table()
@@ -82,7 +87,6 @@ user_moves()
 print()   
 current_table()
 print()
-help()
 # print(user_move_list)
 
 
