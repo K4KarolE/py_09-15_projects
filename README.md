@@ -25,5 +25,10 @@
 - if the number even: number//2, and return value
 - if the number is odd: number*3 + 1, and return value
 
-12 - Tic Tac Toe
+13 - Tic Tac Toe
 - input validation, make sure the user`s step is valid and it was not played already by user nor the ghost in the shell
+
+14 - Automate the Boring Stuff with Python - Chapter 5 - Practice
+- Comma Code: print from list
+- Coin Flip Streaks: counting 6 streaks in a 100 coin flip sequence
+- Character Picture Grid: "picture" in a deep list vertically, print out "standing"
