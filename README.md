@@ -22,5 +22,8 @@
 
 12 - Collatz sequence
 - every int number can/will be reduced to 1 if we repaet continously:
-    - if the number even: number//2, and return value
-    - if the number is odd: number*3 + 1, and return value 
+- if the number even: number//2, and return value
+- if the number is odd: number*3 + 1, and return value
+
+12 - Tic Tac Toe
+- input validation, make sure the user`s step is valid and it was not played already by user nor the ghost in the shell
