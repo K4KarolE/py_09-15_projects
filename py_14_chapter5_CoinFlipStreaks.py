@@ -18,6 +18,5 @@ for p in range(0, max_range-6):
 
 print()
 print(value_list)
-print()
 print(counter)
 
