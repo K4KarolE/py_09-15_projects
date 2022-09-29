@@ -11,7 +11,7 @@ def printer():
         if i + 1 < len(spam):
             print(spam[i] + ', ', end='')
         else:
-            print('and ' + spam[i])
+           print('and ' + spam[i]) 
             
 printer()
 
