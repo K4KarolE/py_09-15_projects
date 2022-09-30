@@ -18,11 +18,9 @@ for q in range(10000):
         if value_list[p] == value_list[p + 1] == value_list[p + 2] == value_list[p + 3] == value_list[p + 4] == value_list[p + 5] == value_list[p + 6]:
             counterTT +=1       
         
-# what is a streak count? is it duplicate when the streak is more than 6 digit long?        
-
+# what is a streak count? is it a duplicate when the streak is more than 6 digit long?        
 
 
 print()
-# print(value_list)
 print(counterTT)
 
