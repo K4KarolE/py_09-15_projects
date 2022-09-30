@@ -37,15 +37,15 @@ while selected_symbol not in symbol_firsp:
     
 if selected_symbol == 'X':
     print()
-    print('Second Player your`s will be: 0')
+    print('Second Player, your`s will be: 0')
 elif selected_symbol == '0':
     print()
-    print('Second Player your`s will be: X')
+    print('Second Player, your`s will be: X')
 
 playchar = ' ' + selected_symbol + ' ' #make sure the step graphicly align in the 3x3 matrix
 
 symbol_secondp.remove(selected_symbol)    
-second_playchar =  ' ' + symbol_secondp[0] + ' '  #the symbol the PC will use
+second_playchar =  ' ' + symbol_secondp[0] + ' '  #the second player`s symbol
 
 
 time.sleep(1)
@@ -105,47 +105,69 @@ def second_user_moves():
             third_row[2] = second_playchar
 
 
+def win():
+    #ROWS
+    if first_row[0] in [playchar, second_playchar] and first_row[0] == first_row[1] == first_row[2] or \
+        second_row[0] in [playchar, second_playchar] and second_row[0] == second_row[1] == second_row[2] or \
+        third_row[0] in [playchar, second_playchar] and third_row[0] == third_row[1] == third_row[2]:
+        print()
+        current_table()
+        print()
+        print('Congraulations ' + player[i] + '! What a bloody legend!')
+        print()
+        sys.exit()
+    #COLUMS
+    elif first_row[0] in [playchar, second_playchar] and first_row[0] == second_row[0] == third_row[0] or \
+        first_row[1] in [playchar, second_playchar] and first_row[1] == second_row[1] == third_row[1] or \
+        first_row[2] in [playchar, second_playchar] and first_row[2] == second_row[2] == third_row[2]:
+        print()
+        current_table()
+        print()
+        print('Congraulations ' + player[i] + '! What a bloody legend!')
+        print()
+        sys.exit()
+    #DIAGONALS
+    elif first_row[0] in [playchar, second_playchar] and first_row[0] == second_row[1] == third_row[2] or \
+        first_row[2] in [playchar, second_playchar] and first_row[2] == second_row[1] == third_row[0]:
+        print()
+        current_table()
+        print()
+        print('Congraulations ' + player[i] + '! What a bloody legend!')
+        print()
+        sys.exit()
+        
 
 
 player = ['First Player', 'Second Player']
 
-p=0
-user_move_list = []
 
-try:
-    for o in range(1000):   
-        for i in range(2):
+user_move_list = []
+i=0
+
+
+while len(user_move_list) < 9:                             
             move = input('Make your move ' + player[i] + ': ').upper()
-            if len(user_move_list) == 9:
-                print('It`s a draw!')
-            elif len(move) == 2 and move not in user_move_list and move[0] in ['A', 'B', 'C'] and move[1] in ['1', '2', '3']:
+            
+            if len(move) == 2 and move not in user_move_list and move[0] in ['A', 'B', 'C'] and move[1] in ['1', '2', '3']:
                 user_move_list = user_move_list + [move]   #for validation, make sure the user not moving to an already allocated position
                 if i == 0:
                     first_user_moves()
+                    if win():
+                        print()
                 else:
                     second_user_moves()
-
+                    if win():
+                        print()
+                
                 print()   
                 current_table()
                 print()
+                i = (i + 1)%2
             else:
                 print()
-                print('Wrong step buddy, the other player`s turn again.')
-        
-        
-
-except KeyboardInterrupt:
-    sys.exit()
-    
+                print('Wrong step buddy, try again.')
 
 
-
-
-
-    
-
-
-
-        
-
-
+if len(user_move_list) == 9:
+        print('It`s a draw!')
+        print()
