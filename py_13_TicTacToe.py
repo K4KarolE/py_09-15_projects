@@ -1,15 +1,12 @@
-import time
+import time, sys
 
-valid_list = ['A', 'B', 'C', 1, 2, 3]
-# colomn = ['A', 'B', 'C']
-# row = [1, 2, 3]
 
 first_row = ['[ ]', '[ ]', '[ ]']
 second_row = ['[ ]', '[ ]', '[ ]']
 third_row = ['[ ]', '[ ]', '[ ]']
 
-symbol_list = ['X', '0']
-symbol_list_PC = ['X', '0']
+symbol_firsp = ['X', '0']
+symbol_secondp = ['X', '0']
 
 def help():
     print('   A ', '  B ', '  C')
@@ -27,37 +24,36 @@ def current_table():
 
 
 print('\n')
-print('TIC TAC TOE')
+print('---TIC TAC TOE---')
+print('Guide:')
+help()
+print()
 
 
-playcharORI = input('Which symbol do you want to play with?(X or 0) ').upper()
-while playcharORI not in symbol_list:
-    playcharORI = input('Come on buddy, you can make it. X or 0? ').upper()
 
-playchar = ' ' + playcharORI + ' ' #make sure the step graphicly align in the 3x3 matrix
+selected_symbol = input('First Player which symbol do you want to play with?(X or 0) ').upper()
+while selected_symbol not in symbol_firsp:
+    selected_symbol = input('Come on buddy, you can make it. X or 0? ').upper()
+    
+if selected_symbol == 'X':
+    print()
+    print('Second Player your`s will be: 0')
+elif selected_symbol == '0':
+    print()
+    print('Second Player your`s will be: X')
 
-symbol_list_PC.remove(playcharORI)    
-PC_char = symbol_list_PC[0]   #the symbol the PC will use
+playchar = ' ' + selected_symbol + ' ' #make sure the step graphicly align in the 3x3 matrix
 
+symbol_secondp.remove(selected_symbol)    
+second_playchar =  ' ' + symbol_secondp[0] + ' '  #the symbol the PC will use
+
+
+time.sleep(1)
 print()
 current_table()
-print('Type "help" for guidance.')
-move = input('Make your move: ').upper()
-user_move_list = [] + [move]   #for validation, make sure the user not moving to an already allocated position
 
 
-def validation():
-    if move not in user_move_list:
-        validation = True
-    if move[0] in valid_list[0:2]:
-        validation = True
-    if move[1] in valid_list[3:5]:
-        validation = True
-    else:
-        validation = False
-
-
-def user_moves():
+def first_user_moves():
     if move[1] == '1':
         if move[0] == 'A':
             first_row[0] = playchar
@@ -82,12 +78,67 @@ def user_moves():
         elif move[0] == 'C':
             third_row[2] = playchar
 
-user_moves()
 
-print()   
-current_table()
-print()
-# print(user_move_list)
+def second_user_moves():
+    if move[1] == '1':
+        if move[0] == 'A':
+            first_row[0] = second_playchar
+        elif move[0] == 'B':
+            first_row[1] = second_playchar
+        elif move[0] == 'C':
+            first_row[2] = second_playchar
+           
+    if move[1] == '2':
+        if move[0] == 'A':
+            second_row[0] = second_playchar
+        elif move[0] == 'B':
+            second_row[1] = second_playchar
+        elif move[0] == 'C':
+            second_row[2] = second_playchar
+  
+    if move[1] == '3':
+        if move[0] == 'A':
+            third_row[0] = second_playchar
+        elif move[0] == 'B':
+            third_row[1] = second_playchar
+        elif move[0] == 'C':
+            third_row[2] = second_playchar
+
+
+
+
+player = ['First Player', 'Second Player']
+
+p=0
+user_move_list = []
+
+try:
+    for o in range(1000):   
+        for i in range(2):
+            move = input('Make your move ' + player[i] + ': ').upper()
+            if len(user_move_list) == 9:
+                print('It`s a draw!')
+            elif len(move) == 2 and move not in user_move_list and move[0] in ['A', 'B', 'C'] and move[1] in ['1', '2', '3']:
+                user_move_list = user_move_list + [move]   #for validation, make sure the user not moving to an already allocated position
+                if i == 0:
+                    first_user_moves()
+                else:
+                    second_user_moves()
+
+                print()   
+                current_table()
+                print()
+            else:
+                print()
+                print('Wrong step buddy, the other player`s turn again.')
+        
+        
+
+except KeyboardInterrupt:
+    sys.exit()
+    
+
+
 
 
 
