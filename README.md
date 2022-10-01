@@ -26,9 +26,13 @@
 - if the number is odd: number*3 + 1, and return value
 
 13 - Tic Tac Toe
-- input validation, make sure the user`s step is valid and it was not played already by user nor the ghost in the shell
+- symbol choosen by the first player
+- input / move already taken / win-draw validation
 
-14 - Automate the Boring Stuff with Python - Chapter 5 - Practice
+14 - Automate the Boring Stuff with Python - Chapter 4 - Practice
 - Comma Code: print from list
 - Coin Flip Streaks: counting 6 streaks in a 100 coin flip sequence
 - Character Picture Grid: "picture" in a deep list vertically, print out "standing"
+
+15 - Automate the Boring Stuff with Python - Chapter 5 - Practice
+- Chess Dictionary, nested dictionaries, get() method
