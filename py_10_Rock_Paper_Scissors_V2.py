@@ -1,10 +1,12 @@
-import random, time, sys
+import random
+import time
+import sys
 
 win = 0
 loss = 0
 draw = 0
 
-list_of_answers = ('r','p','s')
+list_of_answers = ('r', 'p', 's')
 
 
 def delay():
@@ -15,16 +17,17 @@ def delay():
     time.sleep(0.5)
 
 
-
 def win_print():
     print('You win!')
     print('Win(' + str(win) + ') Loss(' + str(loss) + ') Draw(' + str(draw) + ')')
     print()
 
+
 def loss_print():
     print('You lose!')
     print('Win(' + str(win) + ') Loss(' + str(loss) + ') Draw(' + str(draw) + ')')
     print()
+
 
 def draw_print():
     print('It`s a draw!')
@@ -45,8 +48,8 @@ while True:
     users_pick = input('What is your ' + str(i) + '.' + ' pick? ')
     i += 1
     my_pick = random.choice(list_of_answers)
-    #print(users_pick)
-    
+    # print(users_pick)
+
     if users_pick == 'q':
         print()
         print('Sorry to see you go, thx for playing.')
@@ -54,7 +57,7 @@ while True:
         sys.exit()
 
 
-#USERS PICK: ROCK    
+# USERS PICK: ROCK
     elif users_pick == 'r' and my_pick == 'p':
         print('ROCK versus')
         delay()
@@ -77,7 +80,7 @@ while True:
         draw_print()
 
 
-#USERS PICK: PAPER    
+# USERS PICK: PAPER
     elif users_pick == 'p' and my_pick == 'p':
         print('PAPER versus')
         delay()
@@ -99,8 +102,7 @@ while True:
         win += 1
         win_print()
 
-
- #USERS PICK: SCISSORS    
+ # USERS PICK: SCISSORS
     elif users_pick == 's' and my_pick == 'p':
         print('SCISSORS versus')
         delay()
@@ -122,7 +124,7 @@ while True:
         loss += 1
         loss_print()
 
-#USER`S ANSWER IS NOT PART OF R/P/S/Q
+# USER`S ANSWER IS NOT PART OF R/P/S/Q
     elif users_pick not in list_of_answers:
         print()
         time.sleep(0.3)

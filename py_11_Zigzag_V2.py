@@ -1,5 +1,6 @@
 
-import time, sys
+import time
+import sys
 
 charlenght = 4
 chartype = '$'
@@ -8,7 +9,7 @@ pushincreasing = True
 
 try:
     while True:
-        print(' ' * push, end = '')
+        print(' ' * push, end='')
         print(chartype * charlenght)
         time.sleep(0.2)
 
@@ -18,11 +19,10 @@ try:
                 pushincreasing = False
 
         else:
-            push -=1
+            push -= 1
             if push == 0:
-                pushincreasing = True        
-        
+                pushincreasing = True
+
 
 except KeyboardInterrupt:
     sys.exit()
-
