@@ -3,8 +3,8 @@
 - asking to input 2 english names
 - validating them, no numbers, no special characters
 - turn the names into numbers by allocating the letters from the name to it`s index in alphabet: a=1, b=2 // Peter = 16+5+20+5+18 
-- multiply the 2 numbers (from the names) with eachother
-- result`s modulo 26 (26 letters in the US aphabet)
+- multiply the 2 numbers (from the names) with each other
+- result`s modulo 26 (26 letters in the US alphabet)
 - turn back that number into letter, that will be the first letter of the result/new name for both the boy and girl names
 - create a list with name(s) with the first letter
 - if there is more than 1 items in this list: #choose randomly from this group for both the boy and girl names
@@ -21,12 +21,12 @@
 - V2: Adding exit opportunity
 
 12 - Collatz sequence
-- every int number can/will be reduced to 1 if we repaet continously:
+- every int number can/will be reduced to 1 if we repeat continuously:
 - if the number even: number//2, and return value
 - if the number is odd: number*3 + 1, and return value
 
 13 - Tic Tac Toe
-- symbol choosen by the first player
+- symbol chosen by the first player
 - input / move already taken / win-draw validation
 
 14 - Automate the Boring Stuff with Python - Chapter 4 - Practice
