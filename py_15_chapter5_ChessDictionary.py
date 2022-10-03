@@ -1,4 +1,6 @@
-
+# ***Chess***
+# We are going to print out the Color Types / Piece Types / Pieces` amount
+# with valid location and uppercase first letter
 
 chessDic = {'white': {'pawn': {'a2': 1, 'b2': 1, 'c2': 1, 'd2': 1, 'e2': 1, 'f2': 1, 'g2': 1, 'h2': 1},
                       'rook': {'a1': 1, 'h1': 1},
@@ -35,8 +37,24 @@ def countAllPieces():
         for i in valid_pos:
             for k in pieces:
                 count = count + chessDic.get(p, {}).get(k, {}).get(i, 0)
+    
+
+
+print()
+piecesUpper = []
+p=0
+
+for i in chessDic.keys():
+    printColor = i[0].upper() + i[1:] + ':'
+    print(printColor)
+    printPieces = list(chessDic[i].keys())
+
+    for k in range(6):
+        count = 0
+        for p in valid_pos:
+            count = count + chessDic.get(i, {}).get(printPieces[k], {}).get(p, 0)
+        piecesUpper = piecesUpper + [printPieces[k][0].upper() + printPieces[k][1:] + ':']
+        print(piecesUpper[k].rjust(8) + ' ' + str(count))
+  
+    
     print()
-    print(count)
-
-
-countAllPieces()
