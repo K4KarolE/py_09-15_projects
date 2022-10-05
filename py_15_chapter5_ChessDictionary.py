@@ -62,7 +62,7 @@ for i in chessDic.keys():
     print()
 
 
-# VERSION 2 - with keys() method
+# VERSION 2 - with keys() method in the 2nd for loop
 
 print('- VERSION 2 -')
 piecesUpper = []
@@ -79,4 +79,4 @@ for i in chessDic.keys():
         piecesUpper = piecesUpper + [k[0].upper() + k[1:] + ':']
         print(k.rjust(8) + ' ' + str(count))
   
-    print()
+print()
