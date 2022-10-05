@@ -40,10 +40,10 @@ def countAllPieces():
     
 
 
+# VERSION 1
 print()
 piecesUpper = []
 p=0
-
 for i in chessDic.keys():
     printColor = i[0].upper() + i[1:] + ':'
     print(printColor)
@@ -58,3 +58,6 @@ for i in chessDic.keys():
   
     
     print()
+
+# VERSION 2 - items() method
+

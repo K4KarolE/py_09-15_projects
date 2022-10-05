@@ -85,13 +85,13 @@ print('If it is a')
 
 
 if boy_list == []:
-    print('boy: 666   / for all the souls on the planet, pleae do not give a life for this "boy" /')
+    print('boy: 666   / for all the souls on the planet, please do not give a life for this "boy" /')
 else:
     print('boy: ' + random.choice(boy_list))
 
 
 if girl_list == []:
-    print('girl: Backy  / Have you seen the Pet Sematary? /')
+    print('girl: Backy  / Have you seen the Pet Cemetery? /')
 else:
     print('girl: ' + random.choice(girl_list))    
 
