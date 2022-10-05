@@ -38,10 +38,12 @@ def countAllPieces():
             for k in pieces:
                 count = count + chessDic.get(p, {}).get(k, {}).get(i, 0)
     
-
+print('\n')
+print('What is on the board?')
+print()
 
 # VERSION 1
-print()
+print('- VERSION 1 -')
 piecesUpper = []
 p=0
 for i in chessDic.keys():
@@ -49,7 +51,7 @@ for i in chessDic.keys():
     print(printColor)
     printPieces = list(chessDic[i].keys())
 
-    for k in range(6):
+    for k in range(6):     # 6 - piece`s types
         count = 0
         for p in valid_pos:
             count = count + chessDic.get(i, {}).get(printPieces[k], {}).get(p, 0)
@@ -59,5 +61,22 @@ for i in chessDic.keys():
     
     print()
 
-# VERSION 2 - items() method
 
+# VERSION 2 - with keys() method
+
+print('- VERSION 2 -')
+piecesUpper = []
+p=0
+for i in chessDic.keys():
+    printColor = i[0].upper() + i[1:] + ':'
+    print(printColor)
+    printPieces = list(chessDic[i].keys())
+
+    for k in chessDic[i].keys():
+        count = 0
+        for p in valid_pos:
+            count = count + chessDic.get(i, {}).get(k, {}).get(p, 0)  # 
+        piecesUpper = piecesUpper + [k[0].upper() + k[1:] + ':']
+        print(k.rjust(8) + ' ' + str(count))
+  
+    print()
