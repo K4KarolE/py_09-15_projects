@@ -35,4 +35,5 @@
 - Character Picture Grid: "picture" in a deep list vertically, print out "standing"
 
 15 - Automate the Boring Stuff with Python - Chapter 5 - Practice
-- Chess Dictionary, nested dictionaries, get() method
+- Chess Dictionary
+- Growing Dictionary - User able to add new categories / genres / items (keys/values) to his/her favorites

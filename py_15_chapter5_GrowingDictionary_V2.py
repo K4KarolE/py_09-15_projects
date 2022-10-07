@@ -9,13 +9,11 @@ favorites = { 'Movies': { 'Horror': ['Aliens', 'Jaws', '28 days later'],
                           'Drama': ['Mindhunter', 'Misfits', 'Chernobyl']},
               'Songs': [ 'Mark Farina: Dream Machine ', 'Mr.Kitty: After Dark', 'Q Lazzarus: Goodbye Horses']}
 
-newGenList = { 'Movies': [], 'Shows': [] }  #collecting the newly added genres separately for Movies, Shows
-
-newCatList = []    #collecting the newly added categories
 
 def listCategories():
+    print('Categories:')
     for i in favorites.keys():
-        print(i)
+        print(' ' * len('Categories:') + i)
 
 
 print('\n')
@@ -33,61 +31,44 @@ while True:
     category = category[0].upper() + category[1:]
     print()
 
-    while category not in ['Movies', 'Shows', 'Songs', 'Add', 'Q', 'List'] and category not in favorites.keys():
+    while category not in ['Add', 'Q', 'List'] and category not in favorites.keys():
         category = input('Please add a valid category or type "add", "list" or "q": ')
         category = category[0].upper() + category[1:]
-    
-    
+ # Q   
     if category == 'Q':
         print('Thx for dropping by.')
         print()
         break
+# List    
     elif category == 'List':
         listCategories()
-#Print out Movies or Shows (already existing categories)
-    elif category in ['Movies', 'Shows']:
+# New Category with no genre yet  
+    elif category in favorites.keys() and favorites[category] == {}:
+        print('This category does not have any genre yet.')
+
+# Category(apart from Songs) \ Genre 
+    elif category in favorites.keys() and category != 'Songs':
         print('Which genre are you looking for?')
         for i in favorites[category]:
-            print(' ' * 5 + i)
+            print(' ' * len('Which genre are you looking for?') + i)
+        print()
         choiceGenre = input('Next step: ')
-        choiceGenre = choiceGenre[0].upper() + choiceGenre[1:]   
+        choiceGenre = choiceGenre[0].upper() + choiceGenre[1:]
+           
         while choiceGenre not in favorites[category]:
             choiceGenre = input('Please add a valid genre: ')
-            choiceGenre = choiceGenre[0].upper() + choiceGenre[1:] 
+            choiceGenre = choiceGenre[0].upper() + choiceGenre[1:]
+        if favorites[category][choiceGenre] == []:
+                print()
+                print('Sorry, this genre does not have any record yet.') 
         
-        print()
-        print(choiceGenre + ':')
-        for i in favorites[category][choiceGenre]:
-            print( ' ' * (len(choiceGenre) + 1) + i)
-        print()
-
- #Print out Newly added Category \ genre?
-    elif category in newCatList:
-        if favorites[category] == {}:
-            print('Sorry, this category does not have any genre and/or record yet.')
-        else:
+        else:            
             print()
-            print( category + ':')
-            for i in favorites[category]:
-                print( ' ' * (len(category) + 1) + i)
+            print(choiceGenre + ':')
+            for i in favorites[category][choiceGenre]:
+                print( ' ' * (len(choiceGenre) + 1) + i)
             print()
-
-            choiceGenre = input('Which genre are you looking for? ')
-            choiceGenre = choiceGenre[0].upper() + choiceGenre[1:]   
-            while choiceGenre not in favorites[category]:
-                choiceGenre = input('Please add a valid genre: ')
-                choiceGenre = choiceGenre[0].upper() + choiceGenre[1:]
-            if favorites[category][choiceGenre] == []:
-                print()
-                print('Sorry, this genre does not have any record yet.')
-            else:            
-                print()
-                print(choiceGenre + ':')
-                for i in favorites[category][choiceGenre]:
-                    print( ' ' * (len(choiceGenre) + 1) + i)
-                print()
-
-
+# Songs
     elif category == 'Songs':
         print()
         print('Your selection:')
@@ -106,21 +87,19 @@ while True:
             print()
             newCat = input('What is the name of your new Category? ')
             newCat = newCat[0].upper() + newCat[1:]
-            if newCat not in ['Movies', 'Shows', 'Songs'] and newCat not in newCatList:
-                newCatList = newCatList + [newCat]
+            if newCat not in favorites.keys():
                 favorites[newCat] = {}
                 print()
                 print('New category is added: ')
                 for i in favorites.keys():
                     print(' ' * len('New category is added:') + i)
-
-                
+           
             else:
-                while newCat in ['Movies', 'Shows', 'Songs'] or newCat in newCatList:
+                while newCat in favorites.keys():
+                    print()
                     print('Sorry, the category title is already taken. ')
                     newCat = input('Add another Category: ')
                     newCat = newCat[0].upper() + newCat[1:]
-                newCatList = newCatList + [newCat]
                 favorites[newCat] = {}
                 print()
                 print('New category is added: ')
@@ -128,7 +107,6 @@ while True:
                     print(' ' * len('New category is added:') + i)
 
 # Adding Genre
-# Selection
         elif newRecord == 'g':
             print('Current categories / genres:')
             for i in favorites.keys():
@@ -142,65 +120,25 @@ while True:
 
             category = input('In which category? ')
             category = category[0].upper() + category[1:]
-            while category not in ['Movies', 'Shows'] and category not in newCatList:
+            while category not in favorites.keys():
                 category = input('Please add a valid category": ')
                 category = category[0].upper() + category[1:]
 
-# Adding Genre
-# Where to add the new Genre: Movies, Shows + newly added category
-            if category in ['Movies', 'Shows'] or category in newCatList:
+            if category in favorites.keys():
                 choiceName = input('The new title: ')
                 choiceName = choiceName[0].upper() + choiceName[1:]
-
-                if category in ['Movies', 'Shows']:
-                    if choiceName not in ['Horror', 'Comedy', 'Drama'] and choiceName not in newGenList[category]:
-                        newGenList[category] = newGenList[category] + [choiceName]   
-                        favorites[category][choiceName] = []
+                while choiceName in favorites[category]:
                         print()
-                        print('New genre is added:')
-                        print(category + ':')
-                        for k in favorites.get(category):
-                            print(' '*len(i) + k)
-    
-                    else:
-                        while choiceName in ['Horror', 'Comedy', 'Drama'] or choiceName in newGenList[category]:
-                            print()
-                            print('Sorry, the genre title is already taken. ')
-                            choiceName = input('Add another Genre: ')
-                            choiceName = choiceName[0].upper() + choiceName[1:]
-                        newGenList[category] = newGenList[category] + [choiceName]   
-                        favorites[category][choiceName] = []
-                    
-                        print('New genre is added:')
-                        print(category + ':')
-                        for k in favorites.get(category):
-                            print(' '*len(i) + k)
-                    print()
-                
-                
-                elif category in newCatList:
-                    if choiceName not in favorites[category]:
-                        #newGenList[category] = newGenList[category] + [choiceName]   
-                        favorites[category][choiceName] = []
-                        print()
-                        print('New genre is added:')
-                        print(category + ':')
-                        for k in favorites.get(category):
-                            print(' '*len(i) + k)
+                        print('Sorry, the genre title is already taken. ')
+                        choiceName = input('Add another Genre: ')
+                        choiceName = choiceName[0].upper() + choiceName[1:] 
+                favorites[category][choiceName] = []
 
-                    else:
-                        while choiceName in favorites[category]:
-                            print('Sorry, the genre title is already taken. ')
-                            choiceName = input('Add another Genre: ')
-                            choiceName = choiceName[0].upper() + choiceName[1:]
-                        newGenList[category] = newGenList[category] + [choiceName]   
-                        favorites[category][choiceName] = []
-                        print()
-                        print('New genre is added:')
-                        print(category + ':')
-                        for k in favorites.get(category):
-                            print(' '*len(i) + k)
-
+                print()    
+                print('New genre is added:')
+                print(category + ':')
+                for k in favorites.get(category):
+                    print(' '*len(i) + k)
 
 # Adding Record
         elif newRecord == 'r':
@@ -210,29 +148,41 @@ while True:
             print()
             category = input('In which category? ')
             category = category[0].upper() + category[1:]
-            while category not in ['Movies', 'Shows', 'Songs'] and category not in newCatList:
+            while category not in favorites.keys():
                 category = input('Please add a valid category or type "add", "q": ')
                 category = category[0].upper() + category[1:]
 
+# Adding Record - No genre yet
+            if favorites[category] == {}:
+                print()
+                print('To be able to add a record, please add a genre to this category first.')
+                
 # Adding Record - Songs
-            if category == 'Songs':
+            elif category == 'Songs':
                 print()
                 newSong = input('The new track: ')
-                favorites[category] = favorites[category] + [newSong]
-                print()
-                print('New track added to your selection:')
-                for i in favorites[category]:
-                    print( ' ' * len('New track added to your selection:' ) + i)
+                while newSong in favorites[category]:
+                    print()
+                    print('This track already in your list')
+                    newSong = input('The new track: ')
+                if newSong not in favorites[category]:
+                    favorites[category] = favorites[category] + [newSong]
+                    print()
+                    print('New track added to your selection:')
+                    for i in favorites[category]:
+                        print( ' ' * len('New track added to your selection:' ) + i)
                 print()
 
 # Adding Record - Apart from Songs
-            elif category in ['Movies', 'Shows'] or category in newCatList:
-                print('Which genre are you looking for? Horror, Comedy or Drama?')
-                choiceGenre = input('Or in the previously added genre(s): ' + str(favorites[category]) + ' ')
-                choiceGenre = choiceGenre[0].upper() + choiceGenre[1:]   
-                
-                
-                while choiceGenre not in ['Horror', 'Comedy', 'Drama'] and choiceGenre not in favorites[category]:
+            else:
+                print()
+                print(category + ':')
+                for k in favorites.get(category):
+                    print(' '*len(category) + k)
+                print()
+                choiceGenre = input('Add your new record in which genre? ')
+                choiceGenre = choiceGenre[0].upper() + choiceGenre[1:] 
+                while choiceGenre not in favorites[category]:
                     choiceGenre = input('Please add a valid genre: ')
                     choiceGenre = choiceGenre[0].upper() + choiceGenre[1:] 
                 print()
@@ -244,4 +194,3 @@ while True:
                 for i in favorites[category][choiceGenre]:
                     print( ' ' * len(category + ' / ' + choiceGenre + ':') + i)
                 print()
-
